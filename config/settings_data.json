@@ -1,0 +1,42 @@
+{
+  "current": {
+    "type_body_font": "assistant_n4",
+    "type_header_font": "assistant_n4",
+    "heading_scale": 100,
+    "body_scale": 100,
+      
+    "color_background_body": "#ffffff",
+    "color_text": "#3d3d3d",
+    "color_text_light": "#777777",
+    "color_link": "#F39200",
+    "color_primary": "#98BA6C",
+    "color_secondary": "#5bb85b",
+    "color_error": "#e22120",
+    "color_invert": "#ffffff",
+    "color_warning": "#e1771e",
+    "color_headings": "#252a30",
+    "color_headings_hover": "#9d5414",
+    "color_btn_accent_background": "#f39200",
+    "color_btn_accent_text": "#ffffff",
+    "color_btn_secondary_background": "#F8E71C",
+    "color_btn_secondary_text": "#2d333a",
+    "color_btn_solid_background": "#ffffff",
+    "color_btn_solid_text": "#3d3d3d",
+    "color_btn_solid_border": "#e0e0e0",
+    "color_input_background": "#f2f2f2",
+    "color_input_text": "#2d333a",
+    "color_input_border": "#dddddd",
+    "color_footer_background": "#f5f3ed",
+    "color_footer_text": "#1d1d1d",
+    "color_overlay": "#000000",
+    "overlay_opacity": 50,
+   
+    "page_width": 1200,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8
+  },
+  "presets": {
+    "Default": { }
+  }
+}

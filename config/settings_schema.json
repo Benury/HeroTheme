@@ -1,0 +1,281 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Themekit template theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Shopify",
+    "theme_documentation_url": "https://github.com/Shopify/themekit",
+    "theme_support_url": "https://github.com/Shopify/themekit/issues"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Main colors"
+      },
+      {
+        "type": "color",
+        "id": "color_background_body",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text color",
+        "default": "#3d3d3d"
+      },
+      {
+        "type": "color",
+        "id": "color_text_light",
+        "label": "Text light color",
+        "default": "#777777"
+      },
+      {
+        "type": "color",
+        "id": "color_link",
+        "label": "Link color",
+        "default": "#F39200"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary color",
+        "default": "#98BA6C"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary color",
+        "default": "#5bb85b"
+      },
+      {
+        "type": "color",
+        "id": "color_error",
+        "label": "Error color",
+        "default": "#e22120"
+      },
+      {
+        "type": "color",
+        "id": "color_invert",
+        "label": "Invert color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Button"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_accent_background",
+        "label": "Button accent background",
+        "default": "#f39200"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_accent_text",
+        "label": "Button accent text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_secondary_background",
+        "label": "Button secondary background",
+        "default": "#F8E71C"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_secondary_text",
+        "label": "Button secondary text",
+        "default": "#2d333a"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_solid_background",
+        "label": "Button solid background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_solid_text",
+        "label": "Button solid text",
+        "default": "#3d3d3d"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_solid_border",
+        "label": "Button solid border",
+        "default": "#e0e0e0"
+      },
+      {
+        "type": "header",
+        "content": "Input"
+      },
+      {
+        "type": "color",
+        "id": "color_input_background",
+        "label": "Input background",
+        "default": "#f2f2f2"
+      },
+      {
+        "type": "color",
+        "id": "color_input_text",
+        "label": "Input text",
+        "default": "#2d333a"
+      },
+      {
+        "type": "color",
+        "id": "color_input_border",
+        "label": "Input border",
+        "default": "#dddddd"
+      },
+      {
+        "type": "header",
+        "content": "Overlay"
+      },
+      {
+        "type": "color",
+        "id": "color_overlay",
+        "label": "Overlay background",
+        "default": "#000000"
+      },
+      {
+        "type": "range",
+        "id": "overlay_opacity",
+        "label": "Overlay opacity",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "default": 50
+      },
+      {
+        "type": "header",
+        "content": "Headings" 
+      },
+      {
+        "type": "color", 
+        "id": "color_headings",
+        "label": "Headings color",
+        "default": "#252a30"
+      },
+      {
+        "type": "color",
+        "id": "color_headings_hover",
+        "label": "Headings hover color",
+        "default": "#9d5414"
+      },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_background",
+        "label": "Footer background",
+        "default": "#f5f3ed"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_text",
+        "label": "Footer text",
+        "default": "#1d1d1d"
+      }
+    ]  
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Headings"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "assistant_n4",
+        "label": "Font"
+      },
+      {
+        "type": "range",
+        "id": "heading_scale",
+        "min": 100,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "label": "Font size scale",
+        "default": 100
+      },
+      {
+        "type": "header",
+        "content": "Body"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "assistant_n4",
+        "label": "Font"
+      },
+      {
+        "type": "range",
+        "id": "body_scale",
+        "min": 100,
+        "max": 130,
+        "step": 5,
+        "unit": "%",
+        "label": "Font size scale",
+        "default": 100
+      }
+    ]
+  },
+  {
+    "name":"Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1000,
+        "max": 1600,
+        "step": 100,
+        "default": 1200,
+        "unit": "px",
+        "label": "Page width"
+      },
+      {
+        "type": "range",
+        "id": "spacing_sections",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Space between sections",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Grid"
+      },
+      {
+        "type": "range",
+        "id": "spacing_grid_horizontal",
+        "min": 4,
+        "max": 40,
+        "step": 4,
+        "default": 8,
+        "unit": "px",
+        "label": "Horizontal space"
+      },
+      {
+        "type": "range",
+        "id": "spacing_grid_vertical",
+        "min": 4,
+        "max": 40,
+        "step": 4,
+        "default": 8,
+        "unit": "px",
+        "label": "Vertical space"
+      }
+    ]
+  }
+]
