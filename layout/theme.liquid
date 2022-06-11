@@ -7,68 +7,36 @@
   <meta name="description" content="{{ page_description | escape }}">
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  {% style %}
-    :root {
-      --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
-      --font-body-style: {{ settings.type_body_font.style }};
-      --font-body-weight: {{ settings.type_body_font.weight }};
-      --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
-
-      --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
-      --font-heading-style: {{ settings.type_header_font.style }};
-      --font-heading-weight: {{ settings.type_header_font.weight }};
-
-      --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
-      --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
-
-      --color-background: {{ settings.color_background_body.red }}, {{ settings.color_background_body.green }}, {{ settings.color_background_body.blue }};
-      --color-headings: {{ settings.color_headings.red }}, {{ settings.color_headings.green }}, {{ settings.color_headings.blue }};
-      --color-headings-hover:  {{ settings.color_headings_hover.red }}, {{ settings.color_headings_hover.green }}, {{ settings.color_headings_hover.blue }};
-      --color-text: {{ settings.color_text.red }}, {{ settings.color_text.green }}, {{ settings.color_text.blue }};
-      --color-text-light: {{ settings.color_text_light.red }}, {{ settings.color_text_light.green }}, {{ settings.color_text_light.blue }};
-      --color-link: {{ settings.color_link.red }}, {{ settings.color_link.green }}, {{ settings.color_link.blue }};
-      --color-primary: {{ settings.color_primary.red }}, {{ settings.color_primary.green }}, {{ settings.color_primary.blue }};
-      --color-secondary: {{ settings.color_secondary.red }}, {{ settings.color_secondary.green }}, {{ settings.color_secondary.blue }};
-      --color-error: {{ settings.color_error.red }}, {{ settings.color_error.green }}, {{ settings.color_error.blue }};
-      --color-warning: {{ settings.color_warning.red }}, {{ settings.color_warning.green }}, {{ settings.color_warning.blue }};
-      --color-invert: {{ settings.color_invert.red }}, {{ settings.color_invert.green }}, {{ settings.color_invert.blue }};
-      --color-btn-accent-background: {{ settings.color_btn_accent_background.red }}, {{ settings.color_btn_accent_background.green }}, {{ settings.color_btn_accent_background.blue }};
-      --color-btn-accent-text: {{ settings.color_btn_accent_text.red }}, {{ settings.color_btn_accent_text.green }}, {{ settings.color_btn_accent_text.blue }};
-      --color-btn-secondary-background: {{ settings.color_btn_secondary_background.red }}, {{ settings.color_btn_secondary_background.green }}, {{ settings.color_btn_secondary_background.blue }};
-      --color-btn-secondary-text: {{ settings.color_btn_secondary_text.red }}, {{ settings.color_btn_secondary_text.green }}, {{ settings.color_btn_secondary_text.blue }};
-      --color-btn-solid-background:{{ settings.color_btn_solid_background.red }}, {{ settings.color_btn_solid_background.green }}, {{ settings.color_btn_solid_background.blue }};
-      --color-btn-solid-text:{{ settings.color_btn_solid_text.red }}, {{ settings.color_btn_solid_text.green }}, {{ settings.color_btn_solid_text.blue }};
-      --color-btn-solid-border: {{ settings.color_btn_solid_border.red }}, {{ settings.color_btn_solid_border.green }}, {{ settings.color_btn_solid_border.blue }};
-      --color-input-background: {{ settings.color_input_background.red }}, {{ settings.color_input_background.green }}, {{ settings.color_input_background.blue }};
-      --color-input-text: {{ settings.color_input_text.red }}, {{ settings.color_input_text.green }}, {{ settings.color_input_text.blue }};
-      --color-input-border: {{ settings.color_input_border.red }}, {{ settings.color_input_border.green }}, {{ settings.color_input_border.blue }};
-      --color-footer-background: {{ settings.color_footer_background.red }}, {{ settings.color_footer_background.green }}, {{ settings.color_footer_background.blue }};
-      --color-footer-text: {{ settings.color_footer_text.red }}, {{ settings.color_footer_text.green }}, {{ settings.color_footer_text.blue }};
-      --color-overlay:{{ settings.color_overlay.red }}, {{ settings.color_overlay.green }}, {{ settings.color_overlay.blue }};
-      --overlay-opacity: {{ settings.overlay_opacity }};
-      
-      --page-width: {{ settings.page_width }}px;
-      --spacing-sections-desktop: {{ settings.spacing_sections }}px;
-      --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
-      
-      --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
-      --grid-desktop-horizontal-spacing: {{ settings.spacing_grid_horizontal }}px;
-      --grid-mobile-vertical-spacing: {{ settings.spacing_grid_vertical | divided_by: 2 }}px;
-      --grid-mobile-horizontal-spacing: {{ settings.spacing_grid_horizontal | divided_by: 2 }}px;
-
-    }
-  {% endstyle %}
-
   {{ content_for_header }} <!-- Header hook for plugins -->
- 
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
-
 </head>
 <body>
 
-  {% section 'header' %}
-  
+  {% for link in linklists.main-menu.links %}
+    {% assign child_list_handle = link.title | handleize %}
+    {% if linklists[child_list_handle].links != blank %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      [{% for childlink in linklists[child_list_handle].links %}
+        <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+      {% endfor %}]
+    {% else %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    {% endif %}
+  {% endfor %}
+
+  <a href="/cart">cart</a>
+
+  {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+      <a href="/account">account</a>
+      {{ 'log out'  | customer_logout_link }}
+    {% else %}
+      {{ 'log in ' | customer_login_link }}
+      {{ 'register' | customer_register_link }}
+    {% endif %}
+  {% endif %}
+
   <main role="main">
     {{ content_for_layout }}
   </main>
