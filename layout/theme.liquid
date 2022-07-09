@@ -10,8 +10,11 @@
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
+  {% include 'teeinblue-scripts' %}
 </head>
 <body>
+  {% include 'teeinblue-product-loader' %}
+
 
   {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
